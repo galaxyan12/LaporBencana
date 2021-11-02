@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:padding="16dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="5dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:id="@+id/tv_jb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Jenis Bencana :"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_jbi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Bencana"
+            app:layout_constraintStart_toEndOf="@+id/tv_jb"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_alamat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Alamat"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_jb" />
+
+        <TextView
+            android:id="@+id/tv_kabupaten"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Kabupaten :"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_alamat" />
+
+        <TextView
+            android:id="@+id/tv_kabupateni"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Kabupaten"
+            app:layout_constraintStart_toEndOf="@+id/tv_kabupaten"
+            app:layout_constraintTop_toBottomOf="@+id/tv_alamat" />
+
+        <TextView
+            android:id="@+id/tv_kecamatan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Kecamatan :"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_kabupaten" />
+
+        <TextView
+            android:id="@+id/tv_kecamatani"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Kecamatan"
+            app:layout_constraintStart_toEndOf="@+id/tv_kecamatan"
+            app:layout_constraintTop_toBottomOf="@+id/tv_kabupateni" />
+
+        <TextView
+            android:id="@+id/tv_kelurahan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Kelurahan / Desa :"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_kecamatan" />
+
+        <TextView
+            android:id="@+id/tv_kelurahani"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Kelurahan / Desa"
+            app:layout_constraintStart_toEndOf="@+id/tv_kelurahan"
+            app:layout_constraintTop_toBottomOf="@+id/tv_kecamatani" />
+
+        <TextView
+            android:id="@+id/tv_koordinat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Koordinat :"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_kelurahan" />
+
+        <TextView
+            android:id="@+id/tv_koordinati"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Koordinat"
+            app:layout_constraintStart_toEndOf="@+id/tv_koordinat"
+            app:layout_constraintTop_toBottomOf="@+id/tv_kelurahani" />
+
+        <TextView
+            android:id="@+id/tv_longitude"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Bujur :"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_koordinat" />
+
+        <TextView
+            android:id="@+id/tv_longitudei"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Bujur"
+            app:layout_constraintStart_toEndOf="@+id/tv_longitude"
+            app:layout_constraintTop_toBottomOf="@+id/tv_koordinati" />
+
+        <TextView
+            android:id="@+id/tv_latitude"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Lintang :"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_longitude" />
+
+        <TextView
+            android:id="@+id/tv_latitudei"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Lintang"
+            app:layout_constraintStart_toEndOf="@+id/tv_latitude"
+            app:layout_constraintTop_toBottomOf="@+id/tv_longitudei" />
+
+        <TextView
+            android:id="@+id/tv_altitude"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Ketinggian :"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_latitude" />
+
+        <TextView
+            android:id="@+id/tv_altitudei"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Ketinggian"
+            app:layout_constraintStart_toEndOf="@+id/tv_altitude"
+            app:layout_constraintTop_toBottomOf="@+id/tv_latitudei" />
+
+        <TextView
+            android:id="@+id/tv_idpelapor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Identitas Pelapor :"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_altitude" />
+
+        <TextView
+            android:id="@+id/tv_idpelapori"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Pelapor"
+            app:layout_constraintStart_toEndOf="@+id/tv_idpelapor"
+            app:layout_constraintTop_toBottomOf="@+id/tv_altitudei" />
+
+        <TextView
+            android:id="@+id/tv_infokorban"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Informasi Korban :"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_idpelapor" />
+
+        <TextView
+            android:id="@+id/tv_infokorbani"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Info Korban"
+            app:layout_constraintStart_toEndOf="@+id/tv_infokorban"
+            app:layout_constraintTop_toBottomOf="@+id/tv_idpelapori" />
+
+        <TextView
+            android:id="@+id/tv_sebabbencana"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Sebab Bencana :"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_infokorban" />
+
+        <TextView
+            android:id="@+id/tv_sebabbencanai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Sebab Bencana"
+            app:layout_constraintStart_toEndOf="@+id/tv_sebabbencana"
+            app:layout_constraintTop_toBottomOf="@+id/tv_infokorbani" />
+
+        <TextView
+            android:id="@+id/tv_bantuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Bantuan yang di Perlukan :"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_sebabbencana" />
+
+        <TextView
+            android:id="@+id/tv_bantuani"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Bantuan"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_bantuan" />
+
+        <TextView
+            android:id="@+id/tv_respon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Respon Instansi Terkait :"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_bantuani" />
+
+        <TextView
+            android:id="@+id/tv_responi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Respon Instansi"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_respon" />
+
+        <TextView
+            android:id="@+id/tv_pengungsian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Lokasi Pengungsian :"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_responi" />
+
+        <TextView
+            android:id="@+id/tv_pengungsiani"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Lokasi Pengungsian"
+            app:layout_constraintStart_toEndOf="@+id/tv_pengungsian"
+            app:layout_constraintTop_toBottomOf="@+id/tv_responi" />
+
+        <TextView
+            android:id="@+id/tv_rcpengungsian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Rincian Pengungsian :"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_pengungsian" />
+
+        <TextView
+            android:id="@+id/tv_rcpengungsiani"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Rincian Pengungsian"
+            app:layout_constraintStart_toEndOf="@+id/tv_rcpengungsian"
+            app:layout_constraintTop_toBottomOf="@+id/tv_pengungsian" />
+
+        <TextView
+            android:id="@+id/tv_prbantuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Permintaan Bantuan :"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rcpengungsian" />
+
+        <TextView
+            android:id="@+id/tv_prbantuani"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Permintaan Bantuan"
+            app:layout_constraintStart_toEndOf="@+id/tv_prbantuan"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rcpengungsiani" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

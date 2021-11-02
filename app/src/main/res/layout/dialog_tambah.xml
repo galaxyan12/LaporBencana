@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <Spinner
+            android:id="@+id/edit_jenisBencana"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/JenisBencana" />
+
+        <Spinner
+            android:id="@+id/edit_kabupaten"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_jenisBencana" />
+
+        <Spinner
+            android:id="@+id/edit_kecamatan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_kabupaten" />
+
+        <Spinner
+            android:id="@+id/edit_kelurahan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_kecamatan" />
+
+        <EditText
+            android:id="@+id/edit_koordinat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_kelurahan"
+            android:hint="Masukkan Koordinat..."
+            android:importantForAutofill="no" />
+
+        <EditText
+            android:id="@+id/edit_pelapor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_koordinat"
+            android:hint="Nama Pelapor..." />
+
+        <EditText
+            android:id="@+id/edit_infoKorban"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_pelapor"
+            android:hint="Info Korban Bencana..." />
+
+        <EditText
+            android:id="@+id/edit_sebabBencana"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_infoKorban"
+            android:hint="Penyebab Bencana..." />
+
+        <EditText
+            android:id="@+id/edit_bantuan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_sebabBencana"
+            android:hint="Bantuan yang diperlukan..." />
+
+        <EditText
+            android:id="@+id/edit_responInstansi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_bantuan"
+            android:hint="Respon dari instansi..." />
+
+        <EditText
+            android:id="@+id/edit_lokasiPengungsian"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_responInstansi"
+            android:hint="Lokasi Pengungsian..." />
+
+        <EditText
+            android:id="@+id/edit_rincianPengungsian"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_lokasiPengungsian"
+            android:hint="Rincian Pengungsian..."
+            android:lines="4" />
+
+        <EditText
+            android:id="@+id/edit_permintaanBantuan"
+            android:lines="4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_rincianPengungsian"
+            android:hint="Permintaan Bantuan..." />
+
+    </RelativeLayout>
+
+</ScrollView>
