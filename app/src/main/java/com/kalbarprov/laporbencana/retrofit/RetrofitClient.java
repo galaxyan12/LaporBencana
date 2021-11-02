@@ -8,28 +8,29 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitClient {
 
     private static final String BASE_URL = "https://elaporbencana.kalbarprov.go.id/api/";
-    private static Retrofit retrofit;
+    private static Retrofit retrofit = null;
     TokenInterceptor tokenInterceptor = new TokenInterceptor();
 
     public static KabupatenInterface getKabupatenInterface(){
-        retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+
+        if(retrofit == null) {
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
 
         return retrofit.create(KabupatenInterface.class);
     }
 
     private static Retrofit getRetrofit(){
-        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
-        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
-        OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor).build();
-        retrofit = new Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl(BASE_URL)
-                .client(okHttpClient)
-                .build();
+        if(retrofit == null){
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
 
         return retrofit;
     }
