@@ -126,84 +126,24 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_kelurahani" />
 
         <TextView
-            android:id="@+id/tv_longitude"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:text="Bujur :"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_koordinat" />
-
-        <TextView
-            android:id="@+id/tv_longitudei"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="Bujur"
-            app:layout_constraintStart_toEndOf="@+id/tv_longitude"
-            app:layout_constraintTop_toBottomOf="@+id/tv_koordinati" />
-
-        <TextView
-            android:id="@+id/tv_latitude"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:text="Lintang :"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_longitude" />
-
-        <TextView
-            android:id="@+id/tv_latitudei"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="Lintang"
-            app:layout_constraintStart_toEndOf="@+id/tv_latitude"
-            app:layout_constraintTop_toBottomOf="@+id/tv_longitudei" />
-
-        <TextView
-            android:id="@+id/tv_altitude"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:text="Ketinggian :"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_latitude" />
-
-        <TextView
-            android:id="@+id/tv_altitudei"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="Ketinggian"
-            app:layout_constraintStart_toEndOf="@+id/tv_altitude"
-            app:layout_constraintTop_toBottomOf="@+id/tv_latitudei" />
-
-        <TextView
             android:id="@+id/tv_idpelapor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:text="Identitas Pelapor :"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_altitude" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_koordinat" />
 
         <TextView
             android:id="@+id/tv_idpelapori"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
             android:text="Pelapor"
             app:layout_constraintStart_toEndOf="@+id/tv_idpelapor"
-            app:layout_constraintTop_toBottomOf="@+id/tv_altitudei" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_koordinati" />
 
         <TextView
             android:id="@+id/tv_infokorban"
@@ -221,9 +161,19 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="Info Korban"
+            android:text="Jumlah Korban KK"
             app:layout_constraintStart_toEndOf="@+id/tv_infokorban"
             app:layout_constraintTop_toBottomOf="@+id/tv_idpelapori" />
+
+        <TextView
+            android:id="@+id/tv_korbanorang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Jumlah Korban Orang"
+            app:layout_constraintStart_toEndOf="@+id/tv_infokorban"
+            app:layout_constraintTop_toBottomOf="@+id/tv_infokorbani" />
 
         <TextView
             android:id="@+id/tv_sebabbencana"
@@ -233,7 +183,7 @@
             android:layout_marginTop="16dp"
             android:text="Sebab Bencana :"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_infokorban" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_korbanorang" />
 
         <TextView
             android:id="@+id/tv_sebabbencanai"
@@ -243,7 +193,7 @@
             android:layout_marginTop="16dp"
             android:text="Sebab Bencana"
             app:layout_constraintStart_toEndOf="@+id/tv_sebabbencana"
-            app:layout_constraintTop_toBottomOf="@+id/tv_infokorbani" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_korbanorang" />
 
         <TextView
             android:id="@+id/tv_bantuan"
@@ -260,10 +210,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:text="Bantuan"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_bantuan" />
+            app:layout_constraintStart_toEndOf="@+id/tv_bantuan"
+            app:layout_constraintTop_toBottomOf="@+id/tv_sebabbencanai" />
 
         <TextView
             android:id="@+id/tv_respon"
@@ -280,10 +230,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:text="Respon Instansi"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_respon" />
+            app:layout_constraintStart_toEndOf="@+id/tv_respon"
+            app:layout_constraintTop_toBottomOf="@+id/tv_bantuani" />
 
         <TextView
             android:id="@+id/tv_pengungsian"
@@ -304,6 +254,16 @@
             android:text="Lokasi Pengungsian"
             app:layout_constraintStart_toEndOf="@+id/tv_pengungsian"
             app:layout_constraintTop_toBottomOf="@+id/tv_responi" />
+
+        <TextView
+            android:id="@+id/tv_pengungsianorang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Jumlah Pengungsi KK"
+            app:layout_constraintStart_toEndOf="@+id/tv_rcpengungsian"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rcpengungsiani" />
 
         <TextView
             android:id="@+id/tv_rcpengungsian"
@@ -333,7 +293,7 @@
             android:layout_marginTop="16dp"
             android:text="Permintaan Bantuan :"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_rcpengungsian" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_pengungsianorang" />
 
         <TextView
             android:id="@+id/tv_prbantuani"
@@ -343,7 +303,7 @@
             android:layout_marginTop="16dp"
             android:text="Permintaan Bantuan"
             app:layout_constraintStart_toEndOf="@+id/tv_prbantuan"
-            app:layout_constraintTop_toBottomOf="@+id/tv_rcpengungsiani" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_pengungsianorang" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

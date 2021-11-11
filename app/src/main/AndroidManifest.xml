@@ -3,6 +3,9 @@
     package="com.kalbarprov.laporbencana">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
 
     <application
         android:allowBackup="true"
@@ -13,9 +16,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LaporBencana">
         <activity
-            android:name=".LoginActivity"
+            android:name=".TambahActivity"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
             android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true"
@@ -31,5 +38,4 @@
             android:exported="true"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
     </application>
-
 </manifest>

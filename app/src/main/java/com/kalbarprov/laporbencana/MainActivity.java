@@ -1,19 +1,22 @@
 package com.kalbarprov.laporbencana;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.kalbarprov.laporbencana.dialog.TambahDialog;
-import com.kalbarprov.laporbencana.retrofit.GetKabupaten;
-import com.kalbarprov.laporbencana.retrofit.KabupatenAdapter;
+import com.kalbarprov.laporbencana.retrofit.Laporan;
+import com.kalbarprov.laporbencana.retrofit.LaporanAdapter;
+import com.kalbarprov.laporbencana.retrofit.LaporanModel;
 import com.kalbarprov.laporbencana.retrofit.RetrofitClient;
+import com.kalbarprov.laporbencana.retrofit.SharedPrefs;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,12 +27,13 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageView floatAction;
-    RecyclerView recyclerView;
-    ProgressBar progressBar;
-    LinearLayoutManager layoutManager;
-    KabupatenAdapter kabupatenAdapter;
-    List<GetKabupaten> getKabupatenList = new ArrayList<>();
+    private String token;
+    private ImageView floatAction;
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adLaporan;
+    private ProgressBar progressBar;
+    private RecyclerView.LayoutManager layoutManager;
+    public List<Laporan> laporanList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,22 +41,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         recyclerView = findViewById(R.id.recyclerView);
         progressBar = findViewById(R.id.progressBar);
-        layoutManager = new LinearLayoutManager(this);
-
-        floatAction = findViewById(R.id.float_Action);
-        floatAction.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openDialog();
-            }
-        });
-
+        layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
-        kabupatenAdapter = new KabupatenAdapter(getKabupatenList);
-        recyclerView.setAdapter(kabupatenAdapter);
-
-        fetchData();
-
+        floatAction = findViewById(R.id.float_Action);
+        floatAction.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, TambahActivity.class);
+            startActivity(intent);
+        });
+        fetchDataLapor();
     }
 
     public void openDialog(){
@@ -60,22 +56,23 @@ public class MainActivity extends AppCompatActivity {
         tambahDialog.show(getSupportFragmentManager(), "Lapor Bencana");
     }
 
-    private void fetchData(){
+    private void  fetchDataLapor(){
         progressBar.setVisibility(View.VISIBLE);
-        RetrofitClient.getKabupatenInterface().getKabupatenData().enqueue(new Callback<List<GetKabupaten>>() {
+        token = getIntent().getStringExtra("token");
+        Call<LaporanModel> laporanModelCall = RetrofitClient.getLoginInterface().getLaporanData("Bearer "+token);
+        laporanModelCall.enqueue(new Callback<LaporanModel>() {
             @Override
-            public void onResponse(Call<List<GetKabupaten>> call, Response<List<GetKabupaten>> response) {
-                if (response.isSuccessful() && response.body() != null){
-                    getKabupatenList.addAll(response.body());
-                    kabupatenAdapter.notifyDataSetChanged();
-                    progressBar.setVisibility(View.GONE);
-                }
+            public void onResponse(Call<LaporanModel> call, Response<LaporanModel> response) {
+                laporanList = response.body().getLaporan();
+                adLaporan = new LaporanAdapter(MainActivity.this, laporanList);
+                progressBar.setVisibility(View.GONE);
+                recyclerView.setAdapter(adLaporan);
+                adLaporan.notifyDataSetChanged();
             }
 
             @Override
-            public void onFailure(Call<List<GetKabupaten>> call, Throwable t) {
-                progressBar.setVisibility(View.GONE);
-                Toast.makeText(MainActivity.this, "Error : " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            public void onFailure(Call<LaporanModel> call, Throwable t) {
+                Toast.makeText(MainActivity.this, "Gagal mengambil data : "+t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

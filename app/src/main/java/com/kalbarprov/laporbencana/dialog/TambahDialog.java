@@ -1,23 +1,36 @@
 package com.kalbarprov.laporbencana.dialog;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.kalbarprov.laporbencana.LoginActivity;
 import com.kalbarprov.laporbencana.R;
+import com.kalbarprov.laporbencana.retrofit.Kabupaten;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TambahDialog extends AppCompatDialogFragment {
 
     private EditText editKoordinat, editPelapor, editInfoKorban,
             editSebabBencana, editBantuan, editResponInstansi,
             editLokasiPengungsian, editRincianPengungsian, editPermintaanBantuan;
+
+    private Spinner kabupaten;
+    private RecyclerView.Adapter adKabupaten;
+    public List<Kabupaten> kabupatenList = new ArrayList<>();
+    Context ApplicationContext = LoginActivity.getAppContext();
 
     @NonNull
     @Override
@@ -45,7 +58,6 @@ public class TambahDialog extends AppCompatDialogFragment {
         editLokasiPengungsian = view.findViewById(R.id.edit_lokasiPengungsian);
         editRincianPengungsian = view.findViewById(R.id.edit_rincianPengungsian);
         editPermintaanBantuan = view.findViewById(R.id.edit_permintaanBantuan);
-
         return builder.create();
     }
 }

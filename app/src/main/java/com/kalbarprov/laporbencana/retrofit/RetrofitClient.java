@@ -1,32 +1,26 @@
 package com.kalbarprov.laporbencana.retrofit;
 
+import java.util.concurrent.TimeUnit;
+
 import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
 
     private static final String BASE_URL = "https://elaporbencana.kalbarprov.go.id/api/";
-    private static Retrofit retrofit = null;
-    TokenInterceptor tokenInterceptor = new TokenInterceptor();
+    public static Retrofit retrofit = null;
 
-    public static KabupatenInterface getKabupatenInterface(){
-
-        if(retrofit == null) {
-            retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
-        }
-
-        return retrofit.create(KabupatenInterface.class);
-    }
-
-    private static Retrofit getRetrofit(){
-
+    public static Retrofit getRetrofit(){
+        TokenInterceptor tokenInterceptor = new TokenInterceptor();
+        OkHttpClient client = new OkHttpClient.Builder()
+                .connectTimeout(60, TimeUnit.SECONDS)
+                .readTimeout(60, TimeUnit.SECONDS)
+                .addInterceptor(tokenInterceptor)
+                .build();
         if(retrofit == null){
             retrofit = new Retrofit.Builder()
+                    .client(client)
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
@@ -36,9 +30,8 @@ public class RetrofitClient {
     }
 
     public static LoginInterface getLoginInterface(){
-        LoginInterface loginInterface = getRetrofit().create(LoginInterface.class);
 
-        return loginInterface;
+        return getRetrofit().create(LoginInterface.class);
     }
 
 }
